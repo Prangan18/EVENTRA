@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EVENTRA | Discover Experiences</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                EVENTRA<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Explore Events</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="nav-btn" onclick="document.getElementById('events').scrollIntoView({behavior: 'smooth'})">
+    Get Started ↗
+</button>
+<button class="theme-toggle" id="themeToggle" aria-label="Switch theme">
+    ☀️
+</button>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="hero-tag">✦ YOUR NEXT EXPERIENCE STARTS HERE</p>
+
+            <h1>
+                Discover Events.<br>
+                Create <span>Memories.</span>
+            </h1>
+
+            <p class="hero-description">
+                Find the experiences that inspire you.
+                Explore amazing events, connect with people
+                and create unforgettable memories.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#events" class="primary-btn">Explore Events ↗</a>
+                <a href="#about" class="secondary-btn">Learn More</a>
+            </div>
+
+        </div>
+
+        <!-- EVENT SEARCH -->
+
+        <div class="event-search">
+
+            <input
+                type="text"
+                id="eventSearch"
+                placeholder="🔍 Search for events..."
+                oninput="searchEvents()"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- UPCOMING EVENTS SECTION -->
+
+    <section class="events-section" id="events">
+
+        <div class="section-heading">
+
+            <p class="section-tag">DISCOVER EXPERIENCES</p>
+
+            <h2>Explore Upcoming <span>Events.</span></h2>
+
+            <p class="section-description">
+                Find your next unforgettable experience.
+                Discover events that inspire you.
+            </p>
+
+        </div>
+
+        <!-- CATEGORY FILTERS -->
+
+        <div class="filter-buttons">
+
+            <button class="filter-btn active" onclick="filterEvents('all', this)">All Events</button>
+
+            <button class="filter-btn" onclick="filterEvents('technology', this)">Technology</button>
+
+            <button class="filter-btn" onclick="filterEvents('music', this)">Music</button>
+
+            <button class="filter-btn" onclick="filterEvents('business', this)">Business</button>
+
+            <button class="filter-btn" onclick="filterEvents('sports', this)">Sports</button>
+
+        </div>
+
+
+        <!-- EVENT CARDS -->
+
+        <div class="events-grid" id="eventsGrid">
+
+            <!-- TECHNOLOGY EVENT -->
+
+            <div class="event-card" data-category="technology">
+
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800"
+                     alt="Technology Conference">
+
+                <div class="event-info">
+
+                    <p class="event-date">15 DECEMBER 2026</p>
+
+                    <h3>Tech Innovation Summit</h3>
+
+                    <p>Explore artificial intelligence, robotics and emerging technologies.</p>
+
+                    <span>📍 Bhubaneswar, India</span>
+
+                    <button onclick="viewEvent('Tech Innovation Summit')">
+                        Explore ↗
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MUSIC EVENT -->
+
+            <div class="event-card" data-category="music">
+
+                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800"
+                     alt="Music Festival">
+
+                <div class="event-info">
+
+                    <p class="event-date">20 DECEMBER 2026</p>
+
+                    <h3>Neon Nights Music Festival</h3>
+
+                    <p>Experience an unforgettable evening of live music and performances.</p>
+
+                    <span>📍 Kolkata, India</span>
+
+                    <button onclick="viewEvent('Neon Nights Music Festival')">
+                        Explore ↗
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUSINESS EVENT -->
+
+            <div class="event-card" data-category="business">
+
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800"
+                     alt="Business Conference">
+
+                <div class="event-info">
+
+                    <p class="event-date">05 JANUARY 2027</p>
+
+                    <h3>Entrepreneurship Connect</h3>
+
+                    <p>Meet industry leaders, startup founders and young entrepreneurs.</p>
+
+                    <span>📍 New Delhi, India</span>
+
+                    <button onclick="viewEvent('Entrepreneurship Connect')">
+                        Explore ↗
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SPORTS EVENT -->
+
+            <div class="event-card" data-category="sports">
+
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800"
+                     alt="Sports Championship">
+
+                <div class="event-info">
+
+                    <p class="event-date">12 JANUARY 2027</p>
+
+                    <h3>National Sports Championship</h3>
+
+                    <p>Witness incredible athletic performances and thrilling competitions.</p>
+
+                    <span>📍 Mumbai, India</span>
+
+                    <button onclick="viewEvent('National Sports Championship')">
+                        Explore ↗
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
+            <span class="section-tag">ABOUT EVENTRA</span>
+
+            <h2>Making Every Moment <span>Memorable.</span></h2>
+
+            <p>
+                EVENTRA is your gateway to unforgettable experiences.
+                Discover exciting events, connect with like-minded people
+                and be part of moments that matter.
+            </p>
+
+            <div class="about-features">
+
+                <div class="about-feature">
+                    <h3>🎯 Discover</h3>
+                    <p>Find events that match your interests.</p>
+                </div>
+
+                <div class="about-feature">
+                    <h3>🤝 Connect</h3>
+                    <p>Meet people who share your passions.</p>
+                </div>
+
+                <div class="about-feature">
+                    <h3>✨ Experience</h3>
+                    <p>Create memories that last a lifetime.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-container">
+
+            <div class="contact-heading">
+
+                <span class="section-tag">GET IN TOUCH</span>
+
+                <h2>Let's Start a <span>Conversation.</span></h2>
+
+                <p>Have questions or need help? We'd love to hear from you.</p>
+
+            </div>
+
+
+            <form id="contactForm">
+
+                <div class="form-group">
+
+                    <label for="contactName">Your Name</label>
+
+                    <input
+                        type="text"
+                        id="contactName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactEmail">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="contactEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactMessage">Your Message</label>
+
+                    <textarea
+                        id="contactMessage"
+                        rows="5"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button type="submit" class="contact-submit">
+                    Send Message →
+                </button>
+
+            </form>
+
+            <p id="contactStatus" aria-live="polite"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h2>EVENTRA<span>.</span></h2>
+            <p>Discover events. Create memories. Experience more.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#events">Explore Events</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Explore</h3>
+            <a href="#events">Technology</a>
+            <a href="#events">Music</a>
+            <a href="#events">Business</a>
+            <a href="#events">Sports</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 EVENTRA. All rights reserved.</p>
+        <p>Made with passion for unforgettable experiences.</p>
+    </div>
+</footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
